@@ -1,10 +1,8 @@
-# BandLark · 雅思写作工作台
+[![BandLark 雅思写作工作台。手机展示学习首页，电脑展示一篇作文的四项评分与修改建议。](docs/images/bandlark-hero.jpg)](https://bandlark.com/)
 
 **[进入 BandLark 官网 ↗](https://bandlark.com/)**　·　[看一篇完整批改](https://bandlark.com/workspace/?page=demo)　·　[试一组专项练习](https://bandlark.com/workspace/?page=training&mode=practice&welcome=1)
 
 拿到一篇 6.5 分的作文，你会先改哪句话？如果保留自己的观点，这一段还缺哪一步论证？BandLark（原 EssayPilot）是为中文学习者做的 IELTS Writing Task 2 写作网站。写完初稿，你可以顺着批注读回原句，挑一个问题跟 Lark 练，再写第二稿，看看自己的修改解决了什么。
-
-[![BandLark 官网桌面首页，顶部可进入写作、对照精读、背单词和学习档案](docs/images/desktop-cover.jpg)](https://bandlark.com/)
 
 ## 一篇作文是怎么改的
 
