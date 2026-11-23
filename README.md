@@ -1,6 +1,6 @@
 [![BandLark 雅思写作工作台。手机展示学习首页，电脑展示一篇作文的四项评分与修改建议。](docs/images/bandlark-hero.jpg)](https://bandlark.com/)
 
-**[进入 BandLark 官网 ↗](https://bandlark.com/)**　·　[看一篇完整批改](https://bandlark.com/workspace/?page=demo&section=scores)　·　[试一组专项练习](https://bandlark.com/workspace/?page=training&mode=sentence&demo=1)
+**[进入 BandLark 官网 ↗](https://bandlark.com/)**　·　[看一篇完整批改](https://bandlark.com/workspace/?page=demo&tab=full&section=analysis)　·　[试一组专项练习](https://bandlark.com/workspace/?page=training&mode=sentence&demo=1)
 
 拿到一篇 6.5 分的作文，你会先改哪句话？如果保留自己的观点，这一段还缺哪一步论证？BandLark（原 EssayPilot）是为中文学习者做的 IELTS Writing Task 2 写作网站。写完初稿，你可以顺着批注读回原句，挑一个问题跟 Lark 练，再写第二稿，看看自己的修改解决了什么。
 
@@ -10,7 +10,7 @@
 
 点一下原文中的 `people has`，右侧就会解释这里的 `people` 表示复数，改成 `people have` 即可，后面的观点可以原样保留。另一处 `doing practice` 则要先弄清作者是不是想说“临床实践”，才能决定 `clinical practice` 是否贴切。写作者可以逐条核对，也可以把拿不准的句子带给 Lark 追问。
 
-[![真实示例报告的原文批注，左栏标出原句，右栏解释主谓一致并显示具体改动](docs/images/essay-annotations.webp)](https://bandlark.com/workspace/?page=demo&section=analysis)
+[![真实示例报告的原文批注，左栏标出原句，右栏解释主谓一致并显示具体改动](docs/images/essay-annotations.webp)](https://bandlark.com/workspace/?page=demo&tab=map&section=analysis)
 
 <details>
 <summary>查看这篇作文的四项估分和优先修改建议</summary>
