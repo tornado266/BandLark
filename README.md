@@ -1,37 +1,59 @@
-# BandLark
+# BandLark · 雅思写作工作台
 
-BandLark（原 EssayPilot）是一款面向雅思 Task 2 写作的训练工具。这份源码展示新版工作台怎样将反馈对应到学生写下的原句，再让学生检查修订的具体变化。它取自 2026 年 11 月在用的本地前端工作副本，另配一页可独立运行的演示。
+**[进入 BandLark 官网 ↗](https://bandlark.com/)**　·　[看一篇完整批改](https://bandlark.com/workspace/?page=demo)　·　[试一组专项练习](https://bandlark.com/workspace/?page=training&mode=practice&welcome=1)
 
-## 在本机试用
+拿到一篇 6.5 分的作文，你会先改哪句话？如果保留自己的观点，这一段还缺哪一步论证？BandLark（原 EssayPilot）是为中文学习者做的 IELTS Writing Task 2 写作网站。写完初稿，你可以顺着批注读回原句，挑一个问题跟 Lark 练，再写第二稿，看看自己的修改解决了什么。
 
-在仓库根目录执行：
+[![BandLark 官网桌面首页，顶部可进入写作、对照精读、背单词和学习档案](docs/images/desktop-cover.jpg)](https://bandlark.com/)
 
-```sh
-python -m http.server 8000 --bind 127.0.0.1
-```
+## 一篇作文是怎么改的
 
-Windows 亦可用 `py -m http.server 8000 --bind 127.0.0.1`。打开 [本地工作台](http://127.0.0.1:8000/)，修改作文、报告引用的原句和修订后的句子，再点击“更新报告”。浏览器运行期间无需联网，输入不提交给服务器。把同一句复制两遍再试，可以看到引文因位置不明确而无法标出的情形。
+官网的公开示例讨论“大学生应该专攻本专业，还是也学些其他科目”。打开报告，先看到 **Overall 6.5**，以及任务回应、连贯与衔接、词汇、语法四项练习估分。往下看，报告建议作者先换掉重复、生硬的搭配，再补全“专攻一个学科为什么有利于就业”中间省略的推理。
 
-## 源码导航
+点一下原文中的 `people has`，右侧就会解释这里的 `people` 表示复数，改成 `people have` 即可，后面的观点可以原样保留。另一处 `doing practice` 则要先弄清作者是不是想说“临床实践”，才能决定 `clinical practice` 是否贴切。写作者可以逐条核对，也可以把拿不准的句子带给 Lark 追问。
 
-| 文件（web/workspace） | 在 BandLark 中的作用 |
-| --- | --- |
-| text-anchor.mjs | 对引文进行 Unicode 规范化，保留通往原文 UTF-16 区间的映射。可用 SHA-256 校验显式锚点。 |
-| report-original.mjs | 原文批注的定位、排序与重叠处理。此版抽取原工作台用于纸面报告的相关函数，并沿用原 HTML 转义函数。 |
-| word-diff.mjs | 对英文收缩词、标点、空白分词，限时计算逐词改动并渲染修订。 |
-| revision-comparison.mjs、assistant-reply-format.mjs | 渲染两稿对照说明，单独折叠反馈文字中的估分描述。 |
-| grading-client.mjs | 产品中的异步评分请求客户端，处理任务状态与重试。需搭配评分 API；演示页仅使用本地报告呈现模块。 |
+[![真实示例报告的原文批注，左栏标出原句，右栏解释主谓一致并显示具体改动](docs/images/essay-annotations.webp)](https://bandlark.com/workspace/?page=demo)
 
-原应用中由服务端产生评分与反馈。本演示用人工给定的引用和修改展示报告行为，固定示例独立编写。完整的在线评分、账户、词库与教学助手均属于另行运行的产品部分。独立演示入口、样式与测试于 2026-11-23 添加。
+<details>
+<summary>查看这篇作文的四项估分和优先修改建议</summary>
 
-## 运行测试
+![公开示例的评分概览，展示 Overall 6.5、四项评分依据和两项修改建议](docs/images/writing-report.webp)
 
-安装 Node.js 20 或以上版本后，执行：
+</details>
 
-```sh
-node --test tests/report.test.mjs
-```
+## 把一处反馈练到下一句话里
 
-## 许可
+在官网的一组短练里，Lark 把 `people has` 换成一个新题材，请你补全动词。`Many people ___ that a gap year is useful.` 自己写出 `think`，再看解释，就能检验这次是否真的掌握了主谓一致。想继续练同一篇作文，可以从单句润色走到论证打磨、逐段重构，再提交第二稿，对照两稿里已经改好的地方和还需要练的问题。
 
-Copyright © 2026 EssayPilot contributors. BandLark 此处发布的前端程序采用 [GNU GPL v3 only](LICENSE)。`web/workspace/vendor/jsdiff` 随附 [BSD-3-Clause 许可证](web/workspace/vendor/jsdiff/LICENSE)、[版本和改编说明](web/workspace/vendor/jsdiff/README.md) 及对应上游源码。
+[![官网的 Lark 短练示例，左栏选择作文反馈，右栏围绕同一个语法点换题练习](docs/images/lark-practice.jpg)](https://bandlark.com/workspace/?page=home#home-personal)
+
+## 手机上怎么学
+
+手机打开的是同一个网站。第一次来，可以从首页的手写题卡点进示例批改；有了自己的练习记录，就从「接着学」回到上次的内容。读报告时，点一个问题，原句、修改原因和完成标准会从屏幕下方展开，收起后可以接着读。只有几分钟的时候，也可以从底栏进「学习」，选一本词书，完成当天的复习。
+
+<p>
+  <a href="docs/images/mobile-home.jpg"><img src="docs/images/mobile-home.jpg" width="235" alt="手机首页：示例题卡、开始写作和接着学"></a>
+  <a href="docs/images/mobile-feedback.jpg"><img src="docs/images/mobile-feedback.jpg" width="235" alt="手机报告：从底部展开批注，阅读原句、修改建议与完成标准"></a>
+  <a href="docs/images/mobile-wordbook.jpg"><img src="docs/images/mobile-wordbook.jpg" width="235" alt="手机背词页：查词、选择词书和今日任务"></a>
+</p>
+
+*从左到右依次是学习首页、报告批注和背词页。点图可看大图。*
+
+## 写作之外，积累下一篇能用到的材料
+
+在「对照精读」里打开《间隔年：把想法写清楚》，桌面上能把原文和修订版并排读。顺着同色标记看一组句子，会更容易发现作者保留了哪个意思，又怎样调整了措辞和理由。喜欢的句子可以摘录，也可以切到范文精读或打字跟练。[打开对照精读 ↗](https://bandlark.com/workspace/?page=comparison)
+
+[![对照精读实景：《间隔年：把想法写清楚》的原文与修订版并排呈现](docs/images/close-reading.jpg)](https://bandlark.com/workspace/?page=comparison)
+
+动笔前，可以去「武器库」按主题找语料、句式和论证方法。准备整篇练习时，写作页提供自由写作和 Task 2 机考模拟。练完以后，收藏里可以翻词汇、摘录和素材，学习档案里可以回看自己的作文记录。[打开写作页 ↗](https://bandlark.com/workspace/?page=write)　·　[浏览武器库 ↗](https://bandlark.com/workspace/?page=arsenal)
+
+---
+
+<details>
+<summary>开发者入口和源码许可</summary>
+
+仓库公开了写作反馈前端的部分实现，包括[把批注定位回原文](web/workspace/text-anchor.mjs)、[呈现两稿差异](web/workspace/revision-comparison.mjs)和[处理异步评分请求](web/workspace/grading-client.mjs)。[回归测试](tests/report.test.mjs)覆盖引文定位、重复句和逐词改动等情况。
+
+前端程序使用 [GPL-3.0-only](LICENSE)。随附的 jsdiff 代码保留其 [BSD-3-Clause 许可](web/workspace/vendor/jsdiff/LICENSE)。
+
+</details>
