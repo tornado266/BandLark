@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>BandLark · 写作报告工作台</title>
+  <link rel="stylesheet" href="./demo.css">
+</head>
+<body>
+  <main>
+    <header><p class="brand">BandLark</p><h1>写作报告工作台</h1>
+      <p>用一段示例或自己的英文句子，查看报告如何标出原文中的证据，并逐词展示修改。此页在浏览器本地运行。</p>
+    </header>
+    <form id="inputs">
+      <label>作文原文<textarea id="essay" rows="4" maxlength="10000" required>Our study group meets on Friday. The new timetable give us more time to prepare.</textarea></label>
+      <div class="fields">
+        <label>报告引用的原句<textarea id="quote" rows="3" maxlength="2000" required>The new timetable give us more time to prepare.</textarea></label>
+        <label>修订后的句子<textarea id="revised" rows="3" maxlength="2000" required>The new timetable gives us more time to prepare.</textarea></label>
+      </div>
+      <button type="submit">更新报告</button>
+    </form>
+    <section aria-labelledby="evidence-heading"><h2 id="evidence-heading">原文定位</h2>
+      <p id="status" role="status"></p><div id="paper" class="paper" lang="en"></div></section>
+    <section id="ep-paper-explanation-1" tabindex="-1" aria-labelledby="delta-heading">
+      <h2 id="delta-heading">句子对照</h2><div id="difference" lang="en"></div>
+    </section>
+    <details class="notes"><summary>阅读一份二稿反馈示例</summary><div id="comparison"></div></details>
+    <footer>© 2026 EssayPilot contributors · <a href="./LICENSE">GPL-3.0-only</a> · <a href="./README.md">项目说明与第三方许可</a></footer>
+  </main>
+  <script type="module" src="./demo.mjs"></script>
+</body></html>
